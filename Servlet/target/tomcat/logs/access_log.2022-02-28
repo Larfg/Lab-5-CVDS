@@ -1,0 +1,14 @@
+127.0.0.1 - - [28/Feb/2022:17:02:49 -0500] "GET / HTTP/1.1" 200 52 http-bio-8080-exec-1 389
+127.0.0.1 - - [28/Feb/2022:17:02:49 -0500] "GET /favicon.ico HTTP/1.1" 404 973 http-bio-8080-exec-2 2
+127.0.0.1 - - [28/Feb/2022:17:05:55 -0500] "GET /helloServlet?name=Luis HTTP/1.1" 404 975 http-bio-8080-exec-4 2
+127.0.0.1 - - [28/Feb/2022:17:06:57 -0500] "GET / HTTP/1.1" 200 52 http-bio-8080-exec-6 4
+127.0.0.1 - - [28/Feb/2022:17:07:12 -0500] "GET /helloServlet?name=Alejandro HTTP/1.1" 404 975 http-bio-8080-exec-7 1
+127.0.0.1 - - [28/Feb/2022:17:07:56 -0500] "GET /?name=Alejandro HTTP/1.1" 200 52 http-bio-8080-exec-8 3
+127.0.0.1 - - [28/Feb/2022:17:08:04 -0500] "GET /helloServlet HTTP/1.1" 404 975 http-bio-8080-exec-9 1
+127.0.0.1 - - [28/Feb/2022:17:08:10 -0500] "GET / HTTP/1.1" 200 52 http-bio-8080-exec-10 2
+127.0.0.1 - - [28/Feb/2022:17:12:36 -0500] "GET / HTTP/1.1" 200 52 http-bio-8080-exec-2 2
+127.0.0.1 - - [28/Feb/2022:17:13:02 -0500] "GET /?name=luis HTTP/1.1" 200 52 http-bio-8080-exec-2 3
+127.0.0.1 - - [28/Feb/2022:17:13:55 -0500] "GET /helloServlet HTTP/1.1" 404 975 http-bio-8080-exec-2 2
+127.0.0.1 - - [28/Feb/2022:17:20:33 -0500] "GET / HTTP/1.1" 200 52 http-bio-8080-exec-1 49
+127.0.0.1 - - [28/Feb/2022:17:21:15 -0500] "GET /favicon.ico HTTP/1.1" 404 973 http-bio-8080-exec-2 2
+127.0.0.1 - - [28/Feb/2022:17:21:23 -0500] "GET /helloServlet HTTP/1.1" 404 975 http-bio-8080-exec-4 1
