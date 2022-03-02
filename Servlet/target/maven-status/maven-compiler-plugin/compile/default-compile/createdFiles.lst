@@ -1,2 +1,5 @@
-edu\eci\cvds\servlet\model\Todo.class
+edu\eci\cvds\calculator\calculadora.class
+edu\eci\cvds\servlet\HttpServlet.class
 edu\eci\cvds\servlet\SampleServlet.class
+edu\eci\cvds\servlet\Service.class
+edu\eci\cvds\servlet\model\ToDo.class

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Start Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<h1>Digita el ID!</h1>
+<form name="formu" action="/ToDo" onsubmit="return validateForm()" method="get">
+    ID: <input type="text" name="id">
+    <input type="submit" value="Sumbit">
+</form>
+<script>
+			function validateForm() {
+				var x = document.forms["formu"]["id"].value;
+				if (isNaN(x) || x<1 || x>200) {
+					alert("Numero invalido");
+					return false;
+				}
+			}
+</script>
+</body>
+</html>
