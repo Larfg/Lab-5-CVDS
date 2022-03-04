@@ -7,7 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.*;
 
 @ManagedBean(name = "calculadoraBean")
-@ApplicationScoped
+
 @SessionScoped
 public class calculadora{
 
@@ -17,6 +17,7 @@ public class calculadora{
     static double resultadoStandardDeviation = 0;
     static double resultadoMode = 0;
     static double cantidadNumero = 0;
+    static ArrayList<String> valoresDeUsuario = new ArrayList<>();
 
 
     /**
@@ -24,6 +25,10 @@ public class calculadora{
      * @return Array de Double´s
      */
     public calculadora(){}
+
+    private static void guardarValor(){
+        valoresDeUsuario.add(cadenaEntrada);
+    }
 
     /**
      * Calcula promedio de los datos
