@@ -1,39 +1,43 @@
 package edu.eci.cvds.calculator;
 
+import java.util.ArrayList;
+import java.util.Random;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.*;
 
 @ManagedBean(name = "calculadoraBean")
 @ApplicationScoped
-
-public class calculadora {
+@SessionScoped
+public class calculadora{
 
     static String cadenaEntrada = "";
-    static double resMean = 0;
-    static double resVariance = 0;
-    static double resStandardDeviation = 0;
-    static double resMode = 0;
-    static int cantidadNumero = 0;
+    static double resultadoMean = 0;
+    static double resultadoVariance = 0;
+    static double resultadoStandardDeviation = 0;
+    static double resultadoMode = 0;
+    static double cantidadNumero = 0;
 
-    /**
-     * Constructor vacio
-     */
-    public calculadora(){}
 
     /**
      * Metodo que transforma la cadena digitada por el usuario en cadena de Double´s
      * @return Array de Double´s
      */
+    public calculadora(){}
+
+    /**
+     * Calcula promedio de los datos
+     * @return Int que representa el promedio
+     */
     private static double[] cadenaADouble() {
         String[] valores = cadenaEntrada.split(";");
         double[] resultadoValores = new double[valores.length];
         for (int i = 0; i<valores.length;i++) {
-            resultadoValores[i] = Double.parseDouble(valores[i]);
+            resultadoValores[i]=Double.parseDouble(valores[i]);
         }
         cantidadNumero = resultadoValores.length;
         return resultadoValores;
     }
-
 
     /**
      * Calcula promedio de los datos
@@ -45,18 +49,8 @@ public class calculadora {
         for (int i = 0; i < m.length; i++) {
             sum += m[i];
         }
-        resMean = sum / m.length;
-        return resMean ;
-    }
-
-    /**
-     * Calcula la desviacion estandar de los datos
-     * @return Int que representa la desviacion estandar
-     */
-    public static double calculateStandardDeviation(){
-        double[] m = cadenaADouble();
-        resStandardDeviation = Math.sqrt(calculateVariance());
-        return resStandardDeviation;
+        resultadoMean = sum / m.length;
+        return resultadoMean ;
     }
 
     /**
@@ -65,12 +59,24 @@ public class calculadora {
      */
     public static double calculateVariance(){
         double[] m = cadenaADouble();
-        double diff = 0;
-        for (int i = 0; i < m.length; i++)
-            diff += (m[i] - calculateMean()) * (m[i] - calculateMean());
-        resVariance = diff/m.length;
-        return resVariance;
+        double sqDiff = 0;
+        double n = m.length;
+        for (int i = 0; i < n; i++)
+            sqDiff += (m[i] - calculateMean()) * (m[i] - calculateMean());
+        resultadoVariance = sqDiff/n;
+        return resultadoVariance;
     }
+
+    /**
+     * Calcula la desviacion estandar de los datos
+     * @return Int que representa la desviacion estandar
+     */
+    public static double calculateStandardDeviation(){
+        double[] m = cadenaADouble();
+        resultadoStandardDeviation = Math.sqrt(calculateVariance());
+        return resultadoStandardDeviation;
+    }
+
 
     /**
      * Calcula la moda de los datos
@@ -80,9 +86,10 @@ public class calculadora {
         double maxCount = 0;
         double resultadoMode=0;
         double m[] = cadenaADouble();
-        for (int i = 0; i < m.length; ++i) {
+        double n = m.length;
+        for (int i = 0; i < n; ++i) {
             double count = 0;
-            for (int j = 0; j < m.length; ++j) {
+            for (int j = 0; j < n; ++j) {
                 if (m[j] == m[i])
                     ++count;
             }
@@ -94,17 +101,19 @@ public class calculadora {
         return resultadoMode;
     }
 
+
     /**
      * Metodo que reinicia los datos
      */
     public static void restart(){
         cadenaEntrada = "";
-        resMean = 0;
-        resVariance = 0;
-        resStandardDeviation = 0;
-        resMode = 0;
+        resultadoMean = 0;
+        resultadoVariance = 0;
+        resultadoStandardDeviation = 0;
+        resultadoMode = 0;
         cantidadNumero = 0;
     }
+
 
     /**
      * Get Cadena Entrada
@@ -127,7 +136,7 @@ public class calculadora {
      * @return Double Resultado Mean
      */
     public double getResultadoMean() {
-        return resMean;
+        return resultadoMean;
     }
 
     /**
@@ -135,7 +144,7 @@ public class calculadora {
      * @param resultadoMean Double
      */
     public void setResultadoMean(double resultadoMean) {
-        this.resMean = resultadoMean;
+        this.resultadoMean = resultadoMean;
     }
 
     /**
@@ -143,7 +152,7 @@ public class calculadora {
      * @return Double Resultado varianza
      */
     public double getResultadoVariance() {
-        return resVariance;
+        return resultadoVariance;
     }
 
     /**
@@ -151,23 +160,25 @@ public class calculadora {
      * @param resultadoVariance Double
      */
     public void setResultadoVariance(double resultadoVariance) {
-        this.resVariance = resultadoVariance;
+        this.resultadoVariance = resultadoVariance;
     }
+
 
     /**
      * Get Resultado Desviacion Estandar
      * @return Double de desviacion estandar
      */
     public double getResultadoStandardDeviation() {
-        return resStandardDeviation;
+        return resultadoStandardDeviation;
     }
+
 
     /**
      * Set Desviacion Estandar
      * @param resultadoStandardDeviation Double
      */
     public void setResultadoStandardDeviation(double resultadoStandardDeviation) {
-        this.resStandardDeviation = resultadoStandardDeviation;
+        this.resultadoStandardDeviation = resultadoStandardDeviation;
     }
 
     /**
@@ -175,22 +186,24 @@ public class calculadora {
      * @return Double Resultado Moda
      */
     public double getResultadoMode() {
-        return resMode;
+        return resultadoMode;
     }
+
 
     /**
      * Set Moda
      * @param resultadoMode Double
      */
     public void setResultadoMode(double resultadoMode) {
-        this.resMode = resultadoMode;
+        this.resultadoMode = resultadoMode;
     }
+
 
     /**
      * Get Cantidad de numeros
      * @return Int Cantidad de Numeros
      */
-    public int getCantidadNumero() {
+    public double getCantidadNumero() {
         return cantidadNumero;
     }
 
@@ -204,9 +217,10 @@ public class calculadora {
 
     @Override
     public String toString() {
-        return "Calculadora [cadenaEntrada=" + cadenaEntrada + ", resultadoMean=" + resMean
-                + ", resultadoVariance=" + resVariance + ", resultadoStandartDeviation="
-                + resStandardDeviation + ", resultadoMode=" + resMode + ", cantidadNumero=" + cantidadNumero
+        return "Calculadora [cadenaEntrada=" + cadenaEntrada + ", resultadoMean=" + resultadoMean
+                + ", resultadoVariance=" + resultadoVariance + ", resultadoStandartDeviation="
+                + resultadoStandardDeviation + ", resultadoMode=" + resultadoMode + ", cantidadNumero=" + cantidadNumero
                 + "]";
     }
+
 }
