@@ -8,9 +8,9 @@
             color: #00ff15;
         }
     </style>
+    body { background-image:url('images/matrix.gif'); background-repeat:repeat; }
 </h:head>
 <h:body>
-    body { background-image:url('images/matrix.gif'); background-repeat:repeat; }
     <h:form id="calculadora_form">
         <p:outputPanel>
             <p:inputText value="#{calculadoraBean.cadenaEntrada}" actionListener="#{calculadoraBean.guardarValor()}"></p:inputText>
