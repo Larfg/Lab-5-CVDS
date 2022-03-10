@@ -1,0 +1,9 @@
+máquina :
+  Java :
+    versión : oraclejdk8
+
+despliegue :
+  puesta en escena :
+    rama : maestro
+    heroku :
+      nombre de la aplicación : pdsw -circleci-demo
