@@ -1,9 +1,0 @@
-máquina machine:
-  java:
-    version: oraclejdk8
-
-deployment:
-  staging:
-    branch: master
-    heroku: 
-      appname: lab6-cvds-1
