@@ -1,9 +1,9 @@
-máquina :
-  Java :
-    versión : oraclejdk8
+máquina machine:
+  java:
+    version: oraclejdk8
 
-despliegue :
-  puesta en escena :
-    rama : maestro
-    heroku :
-      nombre de la aplicación : lab6-cvds-1
+deployment:
+  staging:
+    branch: master
+    heroku: 
+      appname: lab6-cvds-1
