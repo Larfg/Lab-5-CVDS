@@ -11,20 +11,18 @@
             background-image:url('images/matrix.gif');
             background-repeat:repeat;
         }
-        .form {
-            margin: auto;
-            top: 50%;
-            width: 50%;
-            -ms-transform: translateY(50%);
-            transform: translateY(50%);
-            backdrop-filter: blur(3px);
-            border-radius: 20px;
-            padding: 20px;
+        h1 {
+            font-size: 300%;
+            color: blue;
+            text-shadow: 0 0 20px rgb(74, 209, 184);
         }
     </style>
 </h:head>
 <h:body>
     <h:form id="calculadora_form">
+        <h1>
+            calculadora
+        </h1>
         <p:outputPanel>
             <p:inputText value="#{calculadoraBean.cadenaEntrada}" actionListener="#{calculadoraBean.guardarValor()}"></p:inputText>
         </p:outputPanel>
