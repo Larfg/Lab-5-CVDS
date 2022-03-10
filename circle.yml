@@ -6,4 +6,4 @@ despliegue :
   puesta en escena :
     rama : maestro
     heroku :
-      nombre de la aplicación : pdsw -circleci-demo
+      nombre de la aplicación : lab6-cvds-1
