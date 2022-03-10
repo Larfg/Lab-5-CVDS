@@ -4,6 +4,6 @@ máquina machine:
 
 deployment:
   staging:
-    branch: master
+    branch: circleci-project-setup
     heroku: 
       appname: lab6-cvds-1
